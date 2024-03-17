@@ -4,6 +4,9 @@ export default function Home() {
   return (
     <main>
       <Search />
+      <p className="mt-4 text-4xl text-indigo-800 font-semibold font-mono text-center">
+        FlexGallery Where Every Pixel Tells a Story!
+      </p>
       <ImageGrid />
     </main>
   );
