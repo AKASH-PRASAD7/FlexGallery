@@ -13,7 +13,7 @@ const Navbar = () => {
         <Image src="/logo.png" width={62} height={62} alt="flexgallery" />
       </div>
       <Link
-        href="/"
+        href={"/"}
         className={`${
           pathname === "/"
             ? "text-indigo-600 border-b-2  border-indigo-700"
@@ -23,7 +23,7 @@ const Navbar = () => {
         Home
       </Link>
       <Link
-        href="/starred"
+        href={"/starred"}
         className={` ${
           pathname === "/starred"
             ? "text-indigo-600 border-b-2 border-indigo-700"
