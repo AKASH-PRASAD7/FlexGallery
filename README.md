@@ -20,15 +20,15 @@ FlexGallery is a responsive image gallery application built with Next.js that ut
 
 To run FlexGallery locally, follow these steps:
 
-1. Clone the repository: `git clone [<repository-url>](https://github.com/AKASH-PRASAD7/FlexGallery.git)`
-2. Navigate to the project directory: `cd FlexGallery`
-3. Install dependencies: `npm install`
+1. Clone the repository: ```git clone https://github.com/AKASH-PRASAD7/FlexGallery.git```
+2. Navigate to the project directory: ```cd FlexGallery```
+3. Install dependencies: ```npm install```
 4. Obtain an API key from Unsplash by creating an account at [https://unsplash.com/developers](https://unsplash.com/developers)
 5. Create a `.env.local` file in the root directory of the project and add your Unsplash API key:
    ```
    NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=your-access-key
    ```
-6. Start the development server: `npm run dev`
+6. Start the development server: ```npm run dev```
 7. Open your browser and visit [http://localhost:3000](http://localhost:3000) to view the application.
 
 ## Usage
