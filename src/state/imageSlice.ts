@@ -51,13 +51,10 @@ const imageSlice = createSlice({
         ...state.searchImages.filter((image) => image.liked_by_user),
       ];
 
-      // Optionally, to avoid duplicates in starredImages, you can ensure unique IDs as follows:
-      // Convert the array to a Map with image.id as the key (this automatically removes duplicates because keys are unique)
-      // Then convert the map back to array
-      const uniqueStarredImages = new Map(
-        state.starredImages.map((image) => [image.id, image])
-      );
-      state.starredImages = Array.from(uniqueStarredImages.values());
+      // const uniqueStarredImages = new Map(
+      //   state.starredImages.map((image) => [image.id, image])
+      // );
+      // state.starredImages = Array.from(uniqueStarredImages.values());
     },
     setLoading: (state, action) => {
       state.loading = action.payload;
