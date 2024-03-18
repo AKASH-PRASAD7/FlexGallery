@@ -1,25 +1,36 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Search as SearchIcon } from "lucide-react";
+import useSearchImage from "@/hooks/useSearchImage";
+import { useDispatch } from "react-redux";
+import { setSearchImages } from "@/state/imageSlice";
 
 const Search = () => {
   const [search, setSearch] = useState("");
 
+  const { searchImages, images } = useSearchImage();
+  const dispatch = useDispatch();
+
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      console.log(search);
+      searchImages(search);
+
       setSearch("");
     }
   };
 
   const handleSearchClicked = () => {
-    console.log(search);
+    searchImages(search);
     setSearch("");
   };
 
+  useEffect(() => {
+    dispatch(setSearchImages(images));
+  }, [images]);
+
   return (
     <>
-      <section className="w-1/3 relative flex mx-auto items-center ">
+      <section className="w-2/4 relative flex mx-auto items-center ">
         <SearchIcon
           onClick={handleSearchClicked}
           className="absolute top-6 left-1 text-slate-700 hover:text-indigo-700 cursor-pointer z-10"

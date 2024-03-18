@@ -21,29 +21,43 @@ const imageSlice = createSlice({
       state.searchImages = action.payload;
     },
     setStarredImages: (state, action) => {
-      const { images, searchImages } = state;
-      const { payload: id } = action;
+      if (state.images.length > 0) {
+        let newImage = state.images.map((image) => {
+          if (image.id === action.payload) {
+            image.liked_by_user = !image.liked_by_user;
+            return image;
+          } else {
+            return image;
+          }
+        });
 
-      // Combine images and searchImages for consistent handling
-      const allImages = [...images, ...searchImages];
+        state.images = newImage;
+      }
+      if (state.searchImages.length > 0) {
+        if (state.images.length > 0) {
+          let newImage = state.searchImages.map((image) => {
+            if (image.id === action.payload) {
+              image.liked_by_user = !image.liked_by_user;
+              return image;
+            } else {
+              return image;
+            }
+          });
+          state.searchImages = newImage;
+        }
+      }
+      state.starredImages = [
+        ...state.images.filter((image) => image.liked_by_user),
+        ...state.searchImages.filter((image) => image.liked_by_user),
+      ];
 
-      // Toggle the liked_by_user property for the specified image ID
-      const updatedImages = allImages.map((image) =>
-        image.id === id
-          ? { ...image, liked_by_user: !image.liked_by_user }
-          : image
+      // Optionally, to avoid duplicates in starredImages, you can ensure unique IDs as follows:
+      // Convert the array to a Map with image.id as the key (this automatically removes duplicates because keys are unique)
+      // Then convert the map back to array
+      const uniqueStarredImages = new Map(
+        state.starredImages.map((image) => [image.id, image])
       );
-
-      // Update the starredImages state with filtered liked images
-      state.starredImages = updatedImages.filter(
-        (image) => image.liked_by_user
-      );
-
-      // Separate the images and searchImages back into their respective states
-      state.images = updatedImages.filter((image) => !image.liked_by_user);
-      state.searchImages = updatedImages.filter(
-        (image) => !image.liked_by_user
-      );
+      state.starredImages = Array.from(uniqueStarredImages.values());
     },
     setLoading: (state, action) => {
       state.loading = action.payload;
