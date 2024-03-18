@@ -1,5 +1,5 @@
 import React from "react";
-import StarredComp from "@/components/starred";
+import StarredComp from "@/components/starred/Base";
 
 const page = () => {
   return (

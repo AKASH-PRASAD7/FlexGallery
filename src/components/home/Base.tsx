@@ -7,7 +7,7 @@ import ImageGrid from "@/components/ImageGrid";
 import { RootState } from "@/state/store";
 import HeroSection from "./HeroSection";
 
-const index = () => {
+const Index = () => {
   const { images: hookImages, loading, getImages } = useGetImages();
   const dispatch = useDispatch();
   const { images, searchImages } = useSelector(
@@ -34,4 +34,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

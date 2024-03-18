@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/state/store";
 import ImageGrid from "../ImageGrid";
 
-const index = () => {
+const Index = () => {
   const { starredImages } = useSelector((state: RootState) => state.image);
   return (
     <>
@@ -23,4 +23,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
