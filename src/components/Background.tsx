@@ -4,14 +4,14 @@ import Image from "next/image";
 import useGetBgImage from "@/hooks/useGetBgImage";
 
 const Background = () => {
-  const { image, getBgImage, loading } = useGetBgImage();
+  const { image, getBgImage } = useGetBgImage();
   const url =
     "https://images.unsplash.com/photo-1682686581498-5e85c7228119?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
   useEffect(() => {
     getBgImage();
   }, []);
-  console.log(image?.urls?.regular);
+
   return (
     <div className="relative">
       <Image

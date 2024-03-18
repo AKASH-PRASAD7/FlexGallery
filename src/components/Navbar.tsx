@@ -8,7 +8,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex text-slate-100 items-center gap-4 px-8 shadow-lg shadow-slate-400 glass">
+    <nav className="flex sticky z-30 top-0 text-slate-100 items-center gap-4 px-8 shadow-lg shadow-slate-400 glass">
       <div className="logo">
         <Image src="/logo.png" width={62} height={62} alt="flexgallery" />
       </div>
